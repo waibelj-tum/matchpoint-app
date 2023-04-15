@@ -52,6 +52,8 @@ jobs:
         run: |
           echo '[registries.jakob-waibel-aKz-rust]' >> $HOME/.cargo/config.toml
           echo "index = \"sparse+https://dl.cloudsmith.io/$CLOUDSMITH_TOKEN/jakob-waibel-aKz/rust/cargo/\"" >> $HOME/.cargo/config.toml
+          rm -rf $HOME/.cargo/registry/index
+          cargo update
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
