@@ -50,8 +50,7 @@ jobs:
         env:
           CLOUD_SMITH_TOKEN: ${{ secrets.CLOUD_SMITH_TOKEN }}
         run: |
-          mkdir -p $HOME/.cargo
-          echo '[registries.jakob-waibel-aKz-rust]' >> $HOME/.cargo/config
+          echo '[registries.jakob-waibel-aKz-rust]' >> $HOME/.cargo/config.toml
           echo "index = \"sparse+https://dl.cloudsmith.io/$CLOUDSMITH_TOKEN/jakob-waibel-aKz/rust/cargo/\"" >> $HOME/.cargo/config.toml
 
       - name: Build the app
