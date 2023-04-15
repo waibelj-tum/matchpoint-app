@@ -29,11 +29,6 @@ jobs:
       - name: Rust setup
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Rust cache
-        uses: swatinem/rust-cache@v2
-        with:
-          workspaces: './src-tauri -> target'
-
       - name: Sync node version and setup cache
         uses: actions/setup-node@v3
         with:
@@ -52,8 +47,6 @@ jobs:
         run: |
           echo '[registries.jakob-waibel-aKz-rust]' >> $HOME/.cargo/config.toml
           echo "index = \"sparse+https://dl.cloudsmith.io/$CLOUDSMITH_TOKEN/jakob-waibel-aKz/rust/cargo/\"" >> $HOME/.cargo/config.toml
-          rm -rf $HOME/.cargo/registry/index
-          cargo update
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
