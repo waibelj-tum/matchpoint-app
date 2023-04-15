@@ -46,15 +46,19 @@ jobs:
         # If you don't have `beforeBuildCommand` configured you may want to build your frontend here too.
         run: npm install # Change this to npm, yarn or pnpm.
         
-      - name: Set up private rust repository
-        run: printf "[registries.jakob-waibel-aKz-rust]\nindex = \"$RUST_REGISTRY_URL\"\n" >> ${CARGO_HOME:-$HOME/.cargo}/config.toml
+      - name: Set up private rust registry
+        env:
+          CLOUD_SMITH_TOKEN: ${{ secrets.CLOUD_SMITH_TOKEN }}
+        run: |
+          mkdir -p $HOME/.cargo
+          echo '[registries.jakob-waibel-aKz-rust]' >> $HOME/.cargo/config
+          echo "index = \"sparse+https://dl.cloudsmith.io/$CLOUDSMITH_TOKEN/jakob-waibel-aKz/rust/cargo/\"" >> $HOME/.cargo/config.toml
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          RUST_REGISTRY_URL: ${{ secrets.RUST_REGISTRY_URL }}
         with:
           tagName: ${{ github.ref_name }} # This only works if your workflow triggers on new tags.
           releaseName: 'App Name v__VERSION__' # tauri-action replaces \_\_VERSION\_\_ with the app version.
