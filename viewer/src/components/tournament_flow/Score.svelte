@@ -4,10 +4,10 @@
     $: player2_wins = score?.[1] > score?.[0]
 </script>
 
-<div on:click>
-    <span class:winner={player1_wins}>{score?.[0] || ""}</span>
+<div on:click on:keypress>
+    <span class:winner={player1_wins}>{score ? score[0] : ""}</span>
     :
-    <span class:winner={player2_wins}>{score?.[1] || ""}</span>
+    <span class:winner={player2_wins}>{score ? score[1] : ""}</span>
 </div>
 
 <style>

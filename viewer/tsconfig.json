@@ -10,11 +10,20 @@
 		"sourceMap": true,
 		"strict": true,
 		"paths": {
+			"$lib": [
+				"./src/lib",
+			],
+			"$components": [
+				"./src/components",
+			],
+			"$components/*": [
+				"./src/components/*",
+			],
 			"$lib/*": [
-				"src/lib/*"
+				"./src/lib/*",
 			],
 			"$static/*": [
-				"static/*"
+				"./static/*"
 			]
 		}
 	}

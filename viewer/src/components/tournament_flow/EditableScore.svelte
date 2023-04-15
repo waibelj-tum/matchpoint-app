@@ -1,6 +1,6 @@
 <script lang="ts">
-    import ScorePicker from "$lib/ScorePicker.svelte";
-    import Score from "$lib/Score.svelte";
+    import ScorePicker from "$components/tournament_flow/ScorePicker.svelte";
+    import Score from "$components/tournament_flow/Score.svelte";
 
     export let score: [number, number] | null
     export let edit = false

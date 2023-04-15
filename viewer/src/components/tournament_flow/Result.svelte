@@ -7,11 +7,11 @@
     $: player2_wins = result?.[1] > $bestOf/2
 </script>
 
-<div class:set-result={result!=null}>
+<div>
     {#if result != null}
-        <span class:winner={player1_wins}>{result[0]}</span>
+        <span class:winner={player1_wins}>{result[0]??0}</span>
         :
-        <span class:winner={player2_wins}>{result[1]}</span>
+        <span class:winner={player2_wins}>{result[1]??0}</span>
     {:else}
         :
     {/if}

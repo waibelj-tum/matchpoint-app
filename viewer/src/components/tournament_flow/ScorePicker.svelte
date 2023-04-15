@@ -27,7 +27,7 @@
     }
 
     function selectScore() {
-        const winningPoints = (losingPoints) => Math.max(losingPoints + leadByPoints, pointsToWin)
+        const winningPoints = (losingPoints: number) => Math.max(losingPoints + leadByPoints, pointsToWin)
         function validInput(input: [number, number]): boolean {
             if(input.length > 2) {
                 return false
@@ -38,21 +38,18 @@
             if(input.some(points => isNaN(points))){
                 return false
             }
-            if(input.length === 1 && input[0] === 0) {
-                return false
-            }
             return !(input.length === 2 && input.some(points => points < 0));
         }
 
         let input = presentation.trim().split(":")
-            .map(points => parseInt(points))
+        let input_numbers = input.map(points => parseInt(points))
 
-        if (validInput(input)) {
+        if (validInput(input_numbers)) {
             if(input.length === 1) {
-                if(input[0] < 0) {
-                    score = [-input[0], winningPoints(-input[0])]
+                if(input[0].includes('-')) {
+                    score = [-input_numbers[0], winningPoints(-input_numbers[0])]
                 } else {
-                    score = [winningPoints(input[0]), input[0]]
+                    score = [winningPoints(input_numbers[0]), input_numbers[0]]
                 }
             } else {
                 score = input
