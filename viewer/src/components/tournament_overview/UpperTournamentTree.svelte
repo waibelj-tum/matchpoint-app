@@ -20,16 +20,10 @@
         <div class:space={level > 1}></div>
         <div class="tail">
             <div class="branch">
-                <svelte:self
-                        tournamentTree={tournamentTree.left}
-                        level={level-1}
-                />
+                <svelte:self tournamentTree={tournamentTree.left} level={level-1}/>
             </div>
             <div class="branch">
-                <svelte:self
-                        tournamentTree={tournamentTree.right}
-                        level={level-1}
-                />
+                <svelte:self tournamentTree={tournamentTree.right} level={level-1}/>
             </div>
         </div>
     {/if}
@@ -44,7 +38,7 @@
     }
 
     .space {
-        width: 102px;
+        width: calc(var(--tournament-node-width) + 21px);
     }
 
     .tail {

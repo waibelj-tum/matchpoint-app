@@ -12,7 +12,6 @@
 
 
 <div class="wrapper">
-
     {#if (leaf) }
         <TournamentNode node={tree}/>
     {:else}
@@ -20,7 +19,9 @@
         <div class="tail">
 
             {#if (tree.child)}
-                <svelte:self tree={tree.child}/>
+                <div class="wrapper2">
+                    <svelte:self tree={tree.child}/>
+                </div>
             {:else}
                 <div class="branch">
                     <svelte:self tree={tree.left}/>
@@ -35,6 +36,11 @@
 
 
 <style>
+
+    .wrapper2 {
+        margin-top: 20px;
+    }
+
     .wrapper {
         display: flex;
         flex-direction: row-reverse;

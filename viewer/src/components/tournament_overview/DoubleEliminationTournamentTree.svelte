@@ -35,11 +35,9 @@
 
     .upper {
         flex: 2;
-        margin: 8px;
     }
 
     .lower {
         flex: 1;
-        margin: 8px;
     }
 </style>

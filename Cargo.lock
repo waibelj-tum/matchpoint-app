@@ -1356,7 +1356,7 @@ dependencies = [
 [[package]]
 name = "matchpoint-core"
 version = "0.1.2"
-source = "registry+https://dl.cloudsmith.io/basic/jakob-waibel-aKz/rust/cargo/index.git"
+source = "sparse+https://dl.cloudsmith.io/l7SpZAOvE53gwFA5/jakob-waibel-aKz/rust/cargo/"
 checksum = "8fe548dd3637c9bc02a29b6a747f134ac1f1b64a6e22f748d748b7a9f306f3ed"
 dependencies = [
  "anyhow",
